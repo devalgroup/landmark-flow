@@ -1,0 +1,16 @@
+on:
+  slack_command_webhook:
+    config:
+      filter:
+        command:
+          $regex: translateBook
+jobs:
+  print:
+    name: Print
+    runs-on: ubuntu-latest
+    steps:
+      - name: Print Outputs
+        env:
+          name: ${{on.slack_command_webhook.outputs.name}}
+        run: |
+          echo book_name: $name
