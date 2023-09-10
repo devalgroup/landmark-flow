@@ -28,10 +28,13 @@ jobs:
               ref: main
               token: ${{ secrets.PRIVATE_REPO_TOKEN }}
   
-          - name: Set up Python 3.10
-            uses: actions/setup-python@v2
+          - name: Set up Python 3.11
+            uses: actions/setup-python@v4
             with:
-                python-version: '3.11.5'
+              python-version: "3.11.5"
+              architecture: "x64"
+            env:
+              AGENT_TOOLSDIRECTORY: /opt/hostedtoolcache
   
           - name: Git clone public repo
             run: git clone https://github.com/yihong0618/bilingual_book_maker.git
