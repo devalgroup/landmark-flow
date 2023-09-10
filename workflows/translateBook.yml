@@ -18,28 +18,28 @@ jobs:
         runs-on: ubuntu-latest
 
         steps:
-          - name: Checkout code
-              uses: actions/checkout@v2
+          - name: "Checkout code"
+            uses: actions/checkout@v3
   
           - name: Set up Python 3.10
-              uses: actions/setup-python@v2
-              with:
-                  python-version: '3.10'
+            uses: actions/setup-python@v2
+            with:
+                python-version: '3.10'
   
           - name: Git clone public repo
-              run: git clone https://github.com/yihong0618/bilingual_book_maker.git
+            run: git clone https://github.com/yihong0618/bilingual_book_maker.git
   
           - name: Install requirements in public repo
-              run: |
-                  cd bilingual_book_maker
-                  pip install -r requirements.txt
+            run: |
+              cd bilingual_book_maker
+              pip install -r requirements.txt
   
           - name: Git clone private repo
-              uses: actions/checkout@v2
-              with:
-                  repository: devalgroup/landmark-to-cn
-                  ref: main
-                  token: ${{ secrets.PRIVATE_REPO_TOKEN }}
+            uses: actions/checkout@v2
+            with:
+              repository: devalgroup/landmark-to-cn
+              ref: main
+              token: ${{ secrets.PRIVATE_REPO_TOKEN }}
   
           # - name: Run another Python script in private repo
           #     run: |
