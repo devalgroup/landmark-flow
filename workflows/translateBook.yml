@@ -48,4 +48,4 @@ jobs:
                 cd bilingual_book_maker
                 pwd
                 ls ..
-                python3 make_book.py --book_name ../landmark-to-cn/The\ Old\ Curiosity\ Shop.epub --api_base 'https://opi-gpt3-jp.openai.azure.com/' --openai_key 9c0e95c020024cecbfca6cda18b0600e --deployment_id 'gpt-35-turbo-16k' --test --language zh-hans 
+                python3 make_book.py --book_name ../The\ Old\ Curiosity\ Shop.epub --api_base 'https://opi-gpt3-jp.openai.azure.com/' --openai_key 9c0e95c020024cecbfca6cda18b0600e --deployment_id 'gpt-35-turbo-16k' --test --language zh-hans 
