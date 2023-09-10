@@ -15,7 +15,7 @@ jobs:
             run: |
               echo book_name: $name
     build:
-        runs-on: ubuntu-20.04
+        runs-on: self-hosted
 
         steps:
           - name: "Checkout code"
