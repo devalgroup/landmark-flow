@@ -22,7 +22,7 @@
     "access": "public"
   },
   "dependencies": {
-    "actionsflow-core": "^1.10.0"
+    "actionsflow-core": "^1.5.4"
   },
   "devDependencies": {
     "@types/jest": "^26.0.15",

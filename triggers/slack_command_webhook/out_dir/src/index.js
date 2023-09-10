@@ -10,16 +10,8 @@ class SlackCommandWebhook {
                     if (request.body && request.body.command) {
                         const command = request.body.command;
                         switch (command) {
-                            case "/createvpnaccount": {
-                                items = this._generateCreateCustomerVpnAccount(request.body);
-                                break;
-                            }
-                            case "/updatevpnconfig": {
-                                items = this._generateUpdateVpnConfig(request.body);
-                                break;
-                            }
-                            case "/updategithubuserclashyml": {
-                                items = [{ command: 'updateGithubUserClashYml' }];
+                            case "/translateBook": {
+                                items = this._generateTranslateBook(request.body);
                                 break;
                             }
                         }
@@ -31,19 +23,11 @@ class SlackCommandWebhook {
         this.options = options;
         this.helpers = helpers;
     }
-    _generateCreateCustomerVpnAccount(item) {
+    _generateTranslateBook(item) {
         return [
             {
-                command: 'createCustomerVpnAccount',
-                ID: item.text
-            }
-        ];
-    }
-    _generateUpdateVpnConfig(item) {
-        return [
-            {
-                command: 'updateCustomerVpnConfig',
-                ID: item.text || 'ALL'
+                command: 'translateBook',
+                name: item.text
             }
         ];
     }

@@ -6,6 +6,5 @@ export default class SlackCommandWebhook implements ITriggerClassType {
     webhooks: {
         handler: (request: IWebhookRequest) => AnyObject[];
     }[];
-    private _generateCreateCustomerVpnAccount;
-    private _generateUpdateVpnConfig;
+    private _generateTranslateBook;
 }
