@@ -5,24 +5,12 @@ on:
         command:
           $regex: translateBook
 jobs:
-    print:
-        name: Print
-        runs-on: ubuntu-latest
-        steps:
-          - name: Print Outputs
-            env:
-              name: ${{on.slack_command_webhook.outputs.name}}
-            run: |
-              echo book_name: $name
     build:
+        name: Translate Book
         runs-on: ubuntu-latest
-
         steps:
-          - name: "Checkout code"
-            uses: actions/checkout@v3
-
           - name: Git clone private repo
-            uses: actions/checkout@v2
+            uses: actions/checkout@v3
             with:
               repository: devalgroup/landmark-to-cn
               ref: main
@@ -48,4 +36,4 @@ jobs:
                 cd bilingual_book_maker
                 pwd
                 ls ..
-                python3 make_book.py --book_name ../The\ Old\ Curiosity\ Shop.epub --api_base 'https://opi-gpt3-jp.openai.azure.com/' --openai_key 9c0e95c020024cecbfca6cda18b0600e --deployment_id 'gpt-35-turbo-16k' --test --language zh-hans 
+                python3 make_book.py --book_name ../The\ Old\ Curiosity\ Shop.epub --api_base 'https://opi-gpt3-jp.openai.azure.com/' --openai_key '${{ secrets.OPENAI_API_KEY }}' --deployment_id 'gpt-35-turbo-16k' --test --language zh-hans 
